@@ -37,6 +37,36 @@ location: /etc/systemd/system/poly.service
 
 use "sudo systemctl enable poly" to make this run at startup and restart on error.
 
+##### WEB APP ####
+
+index.php
+functions.php
+poly.css
+poly.js
+
+should be placed in /home/pi/poly_auto/www
+
+Apache2 config:
+
+<VirtualHost *:80>
+
+        ServerName poly.shantysound.system
+        ServerAlias rpi-poly.shantysound.system
+        ServerAdmin webmaster@localhost
+        DocumentRoot /home/pi/poly_auto/www
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+<Directory  /home/pi/poly_auto/www>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+    Require all granted
+</Directory>
+
+Ensure you use chmod to permit access to www for www-data user.
+
 ##### SECURITY NOTICE ######
 
 This is not intended to be a secure application. Web server is http and apache2 is allowed to sudo to run the relays.
