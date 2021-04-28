@@ -1,5 +1,7 @@
 This is a simple set of scripts to run Poly tunnel doors based on average temp.
 
+These scripts control relay boards on the pi that I'm using to run linear actuators on the doors.They could be applied to doors, windows, anything, and of course the code could be used to control relays for anything else you can imagine :)
+
 Use pip to install python modules as required, follow documentation for the relay hats to install them.
 
 The main script loops every five minutes and calculates the temp based on an average of reading from last half hour, this prevents flapping as temp changes rapidly in tunnel.
