@@ -67,6 +67,11 @@ Apache2 config:
 
 Ensure you use chmod to permit access to www for www-data user.
 
+CSS thanks to:
+https://css-tricks.com/value-bubbles-for-range-inputs/
+https://www.w3schools.com/
+
+
 ##### SECURITY NOTICE ######
 
 This is not intended to be a secure application. Web server is http and apache2 is allowed to sudo to run the relays.
