@@ -162,7 +162,7 @@ while True:
                 logging.debug('Opening East doors - temp: %s', average_temp)
                 # call the door control script
                 os.system('python3 /home/pi/poly_auto/door_control.py')
-        elif average_temp > max_temp_west:
+        if average_temp > max_temp_west:
             # open west doors
             if (west_man_override[0] == "off"):
                 db_cursor.execute("UPDATE string_vars SET value='open' WHERE name='west_door'")
@@ -170,7 +170,7 @@ while True:
                 logging.debug('Opening West doors - temp: %s', average_temp)
                 # call the door control script
                 os.system('python3 /home/pi/poly_auto/door_control.py')
-        elif average_temp < min_temp_east:
+        if average_temp < min_temp_east:
             # close East doors
             if (east_man_override[0] == "off"):
                 db_cursor.execute("UPDATE string_vars SET value='close' WHERE name='east_door'")
@@ -178,7 +178,7 @@ while True:
                 logging.debug('Closing East doors - temp: %s', average_temp)
                 # call the door control script
                 os.system('python3 /home/pi/poly_auto/door_control.py')
-        elif average_temp < min_temp_west:
+        if average_temp < min_temp_west:
             # close west doors
             if (west_man_override[0] == "off"):
                 db_cursor.execute("UPDATE string_vars SET value='close' WHERE name='west_door'")
